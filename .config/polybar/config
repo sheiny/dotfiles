@@ -242,4 +242,4 @@ background = #ffffff
 tray-position = cente
 
 [settings]
-screenchange-reload = truer
+screenchange-reload = true
