@@ -19,7 +19,7 @@ border-left-size = 10
 ;----------;
 
 bottom = false
-monitor = HDMI-1
+monitor = ${env:MONITOR:}
 wm-restack = none
 override-redirect = false
 

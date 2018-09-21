@@ -172,4 +172,4 @@ new_window 1pixel
 focus_follows_mouse no
 exec --no-startup-id compton -b
 exec --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg
-
+bindsym Control+mod1+l exec i3lock -c 000000
