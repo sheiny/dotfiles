@@ -1,10 +1,11 @@
 [options]
 font = Source Code Pro 15px
 scrollback_lines = 100000
+cursor_blink = off
 
 [colors]
 background = rgba(0x1f,0x1d,0x45,0.85)
-cursor = #efbf38
+cursor = #ffa500
 foreground = #f8dcc0
 color0 =  #050404
 color1 = #bd0013
