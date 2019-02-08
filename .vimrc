@@ -6,12 +6,15 @@ colorscheme monokai
 set number
 "Don't break lines to fit page"
 set nowrap
-
+"use autoindent"
+set autoindent
+"use smartindent"
+set smartindent
 
 "t_SI = when enters insert mode"
 "t_SR = when enters replace mode"
 "t_EI = when leaving insert or replace mode"
-if &term =~ "xterm" 
+if &term =~ "xterm"
     let &t_SI = "\<Esc>]12;purple\x7"
     let &t_SR = "\<Esc>]12;red\x7"
     let &t_EI = "\<Esc>]12;orange\x7"
