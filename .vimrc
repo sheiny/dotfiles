@@ -6,6 +6,14 @@ colorscheme monokai
 set number
 "Don't break lines to fit page"
 set nowrap
+
+filetype plugin indent on
+" show existing tab with 4 spaces width
+set tabstop=4
+" when indenting with '>', use 4 spaces width
+set shiftwidth=4
+" On pressing tab, insert 4 spaces
+set expandtab
 "use autoindent"
 set autoindent
 "use smartindent"
