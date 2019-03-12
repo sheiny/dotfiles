@@ -18,6 +18,14 @@ set expandtab
 set autoindent
 "use smartindent"
 set smartindent
+"show the matching part of the pair for [] {} and ()"
+set showmatch
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
+
+"enable powerline plugin"
+let g:powerline_pycmd="py3"
+
 
 "t_SI = when enters insert mode"
 "t_SR = when enters replace mode"
