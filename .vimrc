@@ -43,14 +43,9 @@ set guicursor+=a:blinkon0
 "shortcut"
 map <C-n> :NERDTreeToggle<CR>
 
-"mouse open and close files"
-let NERDTreeMouseMode=2
-augroup MouseInNERDTreeOnly
-    autocmd!
-    autocmd BufEnter NERD_tree_* set mouse=a
-    autocmd BufLeave NERD_tree_* set mouse=
-augroup END
-set mouse=
+"For mouse click in NERDTree
+:set mouse=a
+let g:NERDTreeMouseMode=3
 
 "start vim with nerdtree, no need to vim"
 autocmd StdinReadPre * let s:std_in=1
