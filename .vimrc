@@ -33,21 +33,41 @@ filetype plugin indent on    " required
 "filetype plugin on
 " ============================== VUNDLE ==============================
 
-
-"syntax highlightning on"
+" Not bother pretending to be vi
+set nocompatible
+" Syntax highlightning on"
 syntax on	syntax on
-"show line number"
+" Show line number"
 set number
-"Don't break lines to fit page"
+" Don't break lines to fit page"
 set nowrap
-" show existing tab with 4 spaces width
+" Show existing tab with 4 spaces width
 set tabstop=4
-" when indenting with '>', use 4 spaces width
+" When indenting with '>', use 4 spaces width
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
-"show the matching part of the pair for [] {} and ()"
+" Show the matching part of the pair for [] {} and ()"
 set showmatch
+" Search down into subfolders
+" Provides a tab-completion for all file-related tasks
+set path+=**
+" Display all matching files when we tab complete
+set wildmenu
+
+" ============================== CTAGS ==============================
+" Create the 'tags' file
+command! MakeTags !ctags -R .
+
+" Highlights for autocomplete
+" ^x^n for just this file
+" ^x^n for filenames (only works with set path+=**)
+" ^x^] for just tags
+" ^n   for anything specified by complete option
+" for more type :help ins-completion
+"
+" Use ^n and ^p to go back and forth in the suggestion list
+" ============================== CTAGS  ==============================
 
 " Plugin: ColorScheme Monokai
 colorscheme monokai
