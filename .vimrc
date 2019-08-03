@@ -1,20 +1,41 @@
-" Specify a directory for plugins
-" - For Neovim: ~/.local/share/nvim/plugged
-" - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
+" ============================== VUNDLE ==============================
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
     " The NERDTree
-    Plug 'https://github.com/scrooloose/nerdtree.git'
+    Plugin 'https://github.com/scrooloose/nerdtree.git'
 
     " Colorscheme Monokai
-    Plug 'https://github.com/sickill/vim-monokai.git'
+    Plugin 'https://github.com/sickill/vim-monokai.git'
 
-" Initialize plugin system
-call plug#end()
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+" ============================== VUNDLE ==============================
 
 
-
-
+"syntax highlightning on"
+syntax on	syntax on
 "show line number"
 set number
 "Don't break lines to fit page"
