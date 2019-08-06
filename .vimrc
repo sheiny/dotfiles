@@ -8,14 +8,17 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+    " let Vundle manage Vundle, required
+    Plugin 'VundleVim/Vundle.vim'
 
     " The NERDTree
     Plugin 'https://github.com/scrooloose/nerdtree.git'
 
     " Colorscheme Monokai
     Plugin 'https://github.com/sickill/vim-monokai.git'
+
+    " Light Line
+    Plugin 'https://github.com/itchyny/lightline.vim.git'
 
 " Brief help
 " :PluginList       - lists configured plugins
@@ -36,7 +39,7 @@ filetype plugin indent on    " required
 " Not bother pretending to be vi
 set nocompatible
 " Syntax highlightning on"
-syntax on	syntax on
+syntax on
 " Show line number"
 set number
 " Don't break lines to fit page"
