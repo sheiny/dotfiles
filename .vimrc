@@ -75,7 +75,17 @@ command! MakeTags !ctags -R .
 " Plugin: ColorScheme Monokai
 colorscheme monokai
 
+let g:lightline = {
+      \ 'component_function': {
+      \   'filename': 'LightLineFilename'
+      \ }
+      \ }
+function! LightLineFilename()
+    return expand('%')
+endfunction
+
 "NERDTree"
 "shortcut"
 map <C-n> :NERDTreeToggle<CR>
-
+vnoremap <caps> <esc>
+inoremap <caps> <esc>
