@@ -87,5 +87,4 @@ endfunction
 "NERDTree"
 "shortcut"
 map <C-n> :NERDTreeToggle<CR>
-vnoremap <caps> <esc>
-inoremap <caps> <esc>
+map <caps> <esc>
