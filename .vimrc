@@ -60,7 +60,7 @@ set wildmenu
 
 " ============================== CTAGS ==============================
 " Create the 'tags' file
-command! MakeTags !ctags -R .
+command! MakeTags !ctags -R --exclude=debug --exclude=release --exclude=build --exclude=.git
 
 " Highlights for autocomplete
 " ^x^n for just this file
