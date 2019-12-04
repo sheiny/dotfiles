@@ -170,8 +170,8 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id bash ~/.config/polybar/bar.sh
 new_window 1pixel
 focus_follows_mouse no
-exec --no-startup-id picom -b
 exec --no-startup-id feh --bg-scale $HOME/.config/i3/wallpaper.png
+exec_always --no-startup-id picom --config ~/.config/i3/picom.conf
 bindsym Control+mod1+l exec i3lock -c 000000
 bindsym $mod+g exec google-chrome-stable
 exec setxkbmap -model abnt2 -layout br -variant abnt2 -option caps:escape
