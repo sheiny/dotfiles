@@ -57,7 +57,8 @@ set showmatch
 set path+=**
 " Display all matching files when we tab complete
 set wildmenu
-
+" set default clip register to + which is the OS register
+set clipboard=unnamedplus
 " ============================== CTAGS ==============================
 " Create the 'tags' file
 command! MakeTags !ctags -R --exclude=debug --exclude=release --exclude=build --exclude=.git
