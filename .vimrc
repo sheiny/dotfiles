@@ -1,51 +1,39 @@
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-" ============================== VUNDLE ==============================
+" ========================= Plugin Manager ===========================
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" specify the directory for plugins
+call plug#begin('~/.vim/plugged')
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" The NERDTree
+Plug 'scrooloose/nerdtree'
 
-    " let Vundle manage Vundle, required
-    Plugin 'VundleVim/Vundle.vim'
+" Colorscheme Monokai
+Plug 'morhetz/gruvbox'
 
-    " The NERDTree
-    Plugin 'https://github.com/scrooloose/nerdtree.git'
+" Light Line
+Plug 'itchyny/lightline.vim'
 
-    " Colorscheme Monokai
-    Plugin 'https://github.com/sickill/vim-monokai.git'
+" Conquer of Completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-    " Light Line
-    Plugin 'https://github.com/itchyny/lightline.vim.git'
+" comment multiple lines
+Plug 'scrooloose/nerdcommenter'
 
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+" Initialize plugin system
+call plug#end()
 
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-" ============================= Configs ==============================
+" ============================= General ==============================
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+" Enable filetype plugins
+filetype on                 
+filetype plugin on
+filetype indent on
 
 " Not bother pretending to be vi
 set nocompatible
-" Syntax highlightning on"
-syntax on
 " Show line number"
 set number
 " Don't break lines to fit page"
@@ -67,13 +55,24 @@ set wildmenu
 set clipboard=unnamedplus
 " Map caps key to esc
 map <caps> <esc>
+" Always show current position
+set ruler
+" Ignore case when searching
+set ignorecase
+" When searching try to be smart about cases
+set smartcase
+" Highlight search results
+set hlsearch
+" Since Vim will source .vimrc from any directory you run Vim from, this is
+" a potential security hole; so, you should consider setting secure option.
+" This option will restrict usage of some commands in non-default .vimrc files;
+" commands that write to file or execute shell commands are not allowed and map 
+" commands are displayed.
+set secure
 
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 " ============================== CTAGS ==============================
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-" Create the 'tags' file
-command! MakeTags !ctags -R --exclude=debug --exclude=release --exclude=build --exclude=.git
 
 " Highlights for autocomplete
 " ^x^n for just this file
@@ -84,11 +83,33 @@ command! MakeTags !ctags -R --exclude=debug --exclude=release --exclude=build --
 "
 " Use ^n and ^p to go back and forth in the suggestion list
 
+" Create the 'tags' file
+command! MakeTags !ctags -R --exclude=debug --exclude=release --exclude=build --exclude=.git
+
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 " ======================= ColorScheme Monokai  =======================
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
-colorscheme monokai
+" enable syntax highlighting
+syntax enable
+
+" Syntax highlightning on"
+syntax on
+
+" enable 256 color pallete for the terminal
+set t_Co=256
+
+" dark color scheme
+colorscheme gruvbox
+set background=dark
+
+" set UTF-8 encoding
+set enc=utf-8
+set fenc=utf-8
+set termencoding=utf-8
+
+" Use Unix as the standard file type
+set ffs=unix,mac,dos
 
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 " =========================== Light Line  ============================
@@ -106,4 +127,81 @@ endfunction
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 " ============================= NERDTree =============================
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 map <C-n> :NERDTreeToggle<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ==================== Plugin NerdCommenter ===================
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" ======================= Conquer of Completion ======================
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
+" TextEdit might fail if hidden is not set.
+set hidden
+
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+set signcolumn=yes
+
+" Use tab for trigger completion with characters ahead and navigate.
+"inoremap <silent><expr> <TAB>
+"      \ pumvisible() ? "\<C-n>" :
+"      \ <SID>check_back_space() ? "\<TAB>" :
+"      \ coc#refresh()
+"inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Highlight symbol under cursor on CursorHold
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
