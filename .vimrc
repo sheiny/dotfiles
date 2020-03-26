@@ -8,7 +8,7 @@ call plug#begin('~/.vim/plugged')
 " The NERDTree
 Plug 'scrooloose/nerdtree'
 
-" Colorscheme Monokai
+" Colorscheme Gruvbox
 Plug 'morhetz/gruvbox'
 
 " Light Line
