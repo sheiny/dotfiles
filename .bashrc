@@ -12,3 +12,5 @@ PS1='[\u@\h \W]\$ '
 setxkbmap -model abnt2 -layout br -variant abnt2
 xset b off
 [ -f /opt/miniconda3/etc/profile.d/conda.sh ] && source /opt/miniconda3/etc/profile.d/conda.sh
+
+set -o vi

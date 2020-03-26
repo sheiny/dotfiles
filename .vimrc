@@ -1,4 +1,7 @@
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 " ============================== VUNDLE ==============================
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
@@ -34,7 +37,10 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
-" ============================== VUNDLE ==============================
+
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" ============================= Configs ==============================
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 " Not bother pretending to be vi
 set nocompatible
@@ -59,22 +65,34 @@ set path+=**
 set wildmenu
 " set default clip register to + which is the OS register
 set clipboard=unnamedplus
+" Map caps key to esc
+map <caps> <esc>
+
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 " ============================== CTAGS ==============================
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 " Create the 'tags' file
 command! MakeTags !ctags -R --exclude=debug --exclude=release --exclude=build --exclude=.git
 
 " Highlights for autocomplete
 " ^x^n for just this file
-" ^x^n for filenames (only works with set path+=**)
+" ^x^f for filenames (only works with set path+=**)
 " ^x^] for just tags
 " ^n   for anything specified by complete option
 " for more type :help ins-completion
 "
 " Use ^n and ^p to go back and forth in the suggestion list
-" ============================== CTAGS  ==============================
 
-" Plugin: ColorScheme Monokai
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" ======================= ColorScheme Monokai  =======================
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 colorscheme monokai
+
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" =========================== Light Line  ============================
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 let g:lightline = {
       \ 'component_function': {
@@ -85,7 +103,7 @@ function! LightLineFilename()
     return expand('%')
 endfunction
 
-"NERDTree"
-"shortcut"
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" ============================= NERDTree =============================
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 map <C-n> :NERDTreeToggle<CR>
-map <caps> <esc>
