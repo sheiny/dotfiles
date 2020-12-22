@@ -35,8 +35,7 @@ font-3 = "Font Awesome 5 Brands:pixelsize=12;3"
 ;--------;
 ; COLORS ;
 ;--------;
-
-background = 0
+background = #00000000
 foreground = #c5a9f9
 border-color = 0
 
@@ -92,8 +91,7 @@ font-3 = "Font Awesome 5 Brands:pixelsize=10;3"
 ;--------;
 ; COLORS ;
 ;--------;
-
-background = 0
+background = #00000000
 foreground = #c5a9f9
 border-color = 0
 
@@ -237,7 +235,7 @@ label-connected =  %downspeed% |  %upspeed%
 
 inherit = bar/white
 
-background = #ffffff
+background = #00000000
 
 tray-position = cente
 

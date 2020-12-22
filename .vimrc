@@ -5,9 +5,6 @@
 " specify the directory for plugins
 call plug#begin('~/.vim/plugged')
 
-" The NERDTree
-Plug 'scrooloose/nerdtree'
-
 " Colorscheme Gruvbox
 Plug 'morhetz/gruvbox'
 
@@ -19,6 +16,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " comment multiple lines
 Plug 'scrooloose/nerdcommenter'
+
+" improve parenthesis highlighting
+Plug 'frazrepo/vim-rainbow'
 
 " Initialize plugin system
 call plug#end()
@@ -38,12 +38,15 @@ set nocompatible
 set number
 " Don't break lines to fit page"
 set nowrap
-" Show existing tab with 4 spaces width
-set tabstop=4
-" When indenting with '>', use 4 spaces width
-set shiftwidth=4
-" On pressing tab, insert 4 spaces
+" Show existing tab with 2 spaces width
+set tabstop=2
+set softtabstop=2
+" When indenting with '>', use 2 spaces width
+set shiftwidth=2
+" Use spaces instead of tabs
 set expandtab
+" Be smart when using tabs
+set smarttab
 " Show the matching part of the pair for [] {} and ()"
 set showmatch
 " Search down into subfolders
@@ -111,6 +114,9 @@ set termencoding=utf-8
 " Use Unix as the standard file type
 set ffs=unix,mac,dos
 
+" Make set vim transparency (this have to go after colorscheme def)
+hi Normal guibg=NONE ctermbg=NONE
+
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 " =========================== Light Line  ============================
 " ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
@@ -123,12 +129,6 @@ let g:lightline = {
 function! LightLineFilename()
     return expand('%')
 endfunction
-
-" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-" ============================= NERDTree =============================
-" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
-
-map <C-n> :NERDTreeToggle<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ==================== Plugin NerdCommenter ===================
@@ -194,6 +194,10 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
+" Delete  without write clipboard
+nnoremap d "_d
+vnoremap d "_d
+
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
@@ -205,3 +209,10 @@ function! s:show_documentation()
   endif
 endfunction
 
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+" =================== Rainbow Parentheses Improved ===================
+" ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+let g:rainbow_active = 1
+
+" Make set vim transparency (this have to go after colorscheme def)
+hi Normal guibg=NONE ctermbg=NONE
