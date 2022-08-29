@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 14
+font pango:DejaVu Sans Mono 10
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -192,6 +192,6 @@ exec --no-startup-id feh --bg-fill /home/sheiny/Pictures/Wallpapers/neon.jpg
 focus_follows_mouse no
 bindsym Control+mod1+l exec i3lock -c 000000
 exec xset b off
-bindsym --release Control+mod1+p exec import ~/screenshot_$(date +%T).png
+bindsym --release Control+mod1+p exec import ~/screenshot_$(date +%Y:%m:%d-%T).png
 bindsym Control+space exec source ~/workspace/dotfiles/scripts/keyboard.sh
 
